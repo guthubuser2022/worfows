@@ -26,3 +26,11 @@ jobs:
           npm install
           npm run build --if-present
           npm test
+      - name: build and push docker
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: binaydocker27/hello-world
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
